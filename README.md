@@ -1,2 +1,3 @@
-# STCPCP
-Secure TCP Chatting Protocol
+# Secure TCP Chatting Protocol
+
+My journey on creating a secure chatting protocol...
