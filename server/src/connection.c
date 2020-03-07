@@ -55,13 +55,15 @@ int connection_authenticate(connection_s *conn)
     {   
         if (!memcmp(conn->data.memd.ptr, USER_CODE, conn->data.memd.len))   
         {    
-            printf("User connected: %s:%d\n", inet_ntoa(conn->addr.sin_addr), ntohs(conn->addr.sin_port));   
+            printf("User connected: %s:%d\n", inet_ntoa(conn->addr.sin_addr), 
+                                              ntohs(conn->addr.sin_port));   
             conn->permission = PERMISSION_USER;    
             r = 1;   
         }   
         else if (!memcmp(conn->data.memd.ptr, ADMIN_CODE, conn->data.memd.len))   
         {   
-            printf("Admin connected: %s:%d\n", inet_ntoa(conn->addr.sin_addr), ntohs(conn->addr.sin_port));   
+            printf("Admin connected: %s:%d\n", inet_ntoa(conn->addr.sin_addr),
+                                               ntohs(conn->addr.sin_port));   
             conn->permission = PERMISSION_ADMIN;   
             r = 1;   
         }   
@@ -85,7 +87,8 @@ void connection_parse(connection_s *conn)
         //send global message
         return;
     }
-    else if (*conn->data.memd.ptr == MSG_COMMAND && conn->permission == PERMISSION_ADMIN)
+    else if (*conn->data.memd.ptr == MSG_COMMAND &&
+             conn->permission == PERMISSION_ADMIN)
     {
         //issue global, or direct command
         return;
