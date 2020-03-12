@@ -14,10 +14,7 @@ void *list_init_element(int size)
     void *el = (void *)malloc(size);   
    
     if (!el)   
-    {   
-        printf("Memory allocation error!\n");   
-        return NULL;   
-    }   
+        return NULL;     
    
     memset(el, 0, size);   
    
